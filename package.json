@@ -1,0 +1,22 @@
+{
+  "name": "liveweb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wipaholic/liveWeb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wipaholic/liveWeb/issues"
+  },
+  "homepage": "https://github.com/wipaholic/liveWeb#readme",
+  "dependencies": {
+    "socket.io": "^1.4.8"
+  }
+}
