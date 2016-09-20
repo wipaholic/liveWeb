@@ -1,5 +1,7 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="style.css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
 		<script type="text/javascript">
 		
@@ -12,23 +14,50 @@
 			// Receive from any event
 			socket.on('chatmessage', function (data) {
 				console.log(data);
-				document.getElementById('messages').innerHTML = "" + data + 
- + "" + document.getElementById('messages').innerHTML;
+				var noe = document.createElement('div');
+				var unique = Date.now();
+				noe.id = unique;
+				document.getElementById('messages').appendChild(noe);
+				noe.innerHTML = data;
+
+				noe.style.transition="opacity 3s linear";
+
+				setTimeout(function() {
+					noe.style.opacity = "0";
+					console.log(noe);
+
+				}, 100);
+
+
 			});
 			
 			var sendmessage = function(message) {
 				console.log("chatmessage: " + message);
 				socket.emit('chatmessage', message);
+
 			};
+
+			var execute = function () {
+			document.getElementById('message').addEventListener('keyup', function(e) {
+					e.preventDefault();
+					if(e.keyCode == 13) {
+						document.getElementById('submit-button').click();
+						document.getElementById('message').value = ''
+					}
+				})  
+			};
+
+			if ( !!(window.addEventListener) )
+			window.addEventListener("DOMContentLoaded", execute)
+			else // MSIE
+			window.attachEvent("onload", execute)
 
 	
 		</script>	
 	</head>
  <body>
- <div id="messages">
- No Messages Yet
- </div>
+ <div id="messages"> </div>
  <input type="text" id="message" name="message">
- <input type="submit" value="submit" onclick="sendmessage(document.getElementById('message').value);">
+ <input type="submit" id="submit-button" value="submit" onclick="sendmessage(document.getElementById('message').value);">
  </body>
 </html>

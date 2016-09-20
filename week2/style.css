@@ -1,0 +1,29 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+#messages {
+  transition: opacity 2s linear;
+  font-size: 50px;
+}
+
+input[type=text] {  
+	-webkit-appearance: none;
+
+	border: none;
+	border-bottom: 1px solid black;
+	font-family: 'Montserrat', sans-serif;
+	padding: 0px;
+	outline: none;
+	width: 80%;
+	font-size: 20px;
+}
+
+input[type="submit"] {
+	font-family: 'Montserrat', sans-serif;
+	border: 1px solid white;
+    background-color: white;
+    padding: 0;
+    margin-left: 5px;
+    font-size: 20px;
+}
